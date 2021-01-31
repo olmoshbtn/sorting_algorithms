@@ -11,7 +11,7 @@
  */
 size_t partition(int *array, ssize_t low, ssize_t high, size_t size)
 {
-	ssize_t pivot = high;
+	ssize_t pivot = low;
 	int swap;
 
 	while (pivot < high)
