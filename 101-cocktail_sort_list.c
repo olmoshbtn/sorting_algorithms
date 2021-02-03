@@ -1,11 +1,11 @@
 #include "sort.h"
 
 /**
- * swap - swaps a node with the next node in the list
+ * swap_node - swaps a node with the next node in the list
  * @list: double pointer to the head of a doubly linked list
  * @node: pointer to the node to swap
  */
-void swap(listint_t **list, listint_t *node)
+void swap_node(listint_t **list, listint_t *node)
 {
 	node->next->prev = node->prev;
 	if (node->prev)
@@ -27,39 +27,40 @@ void swap(listint_t **list, listint_t *node)
  */
 void cocktail_sort_list(listint_t **list)
 {
-	char swapped = 1;
-	listint_t *temp;
+	/* Boolean values, true equals 1, false equals 0 */
+	int swapped = 1;
+	listint_t *tmp = *list;
 
 	if (list == NULL || *list == NULL)
 		return;
-	temp = *list;
+
 	while (swapped != 0)
 	{
 		swapped = 0;
-		while (temp->next != NULL)
+		while (tmp->next != NULL)
 		{
-			if (temp->next->n < temp->n)
+			if (tmp->next->n < tmp->n)
 			{
-				swap(list, temp);
+				swap_node(list, tmp);
 				swapped = 1;
 				print_list(*list);
 			}
 			else
-				temp = temp->next;
+			tmp = tmp->next;
 		}
 		if (swapped == 0)
 			break;
 		swapped = 0;
-		while (temp->prev != NULL)
+		while (tmp->prev != NULL)
 		{
-			if (temp->prev->n > temp->n)
+			if (tmp->prev->n > tmp->n)
 			{
-				swap(list, temp->prev);
+				swap_node(list, tmp->prev);
 				swapped = 1;
 				print_list(*list);
 			}
 			else
-				temp = temp->prev;
+				tmp = tmp->prev;
 		}
 	}
 }
