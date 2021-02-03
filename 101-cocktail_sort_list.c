@@ -29,9 +29,8 @@ void cocktail_sort_list(listint_t **list)
 {
 	/* Boolean values, true equals 1, false equals 0 */
 	static int swapped = 1;
-	listint_t *tmp;
+	listint_t *tmp = *list;
 
-	tmp = *list;
 	if (list == NULL || *list == NULL)
 		return;
 
