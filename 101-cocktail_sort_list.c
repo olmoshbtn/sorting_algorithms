@@ -1,11 +1,11 @@
 #include "sort.h"
 
 /**
- * swap_node - swaps a node with the next node in the list
+ * swap - swaps a node with the next node in the list
  * @list: double pointer to the head of a doubly linked list
  * @node: pointer to the node to swap
  */
-void swap_node(listint_t **list, listint_t *node)
+void swap(listint_t **list, listint_t *node)
 {
 	node->next->prev = node->prev;
 	if (node->prev)
